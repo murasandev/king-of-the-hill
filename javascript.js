@@ -15,14 +15,13 @@
 let validUserInput;
 let userInput;
 let userNumber;
+let userScore = 0;
 let computerRandomNumber;
 let computerChoice;
+let computerScore = 0;
 
 // Gameplay Loop
-getUserInput();
-getCpuInput();
-setCpuInput();
-compareUserCpuChoice();
+playRound();
 
 function getUserInput(){
   do {
@@ -92,10 +91,20 @@ function compareUserCpuChoice(){
     case 1:
     case -2:
       console.log(`You chose ${userInput}, CPU chose ${computerChoice}. You lose.`);
+      computerScore++;
       break;
 
     default:
       console.log(`You chose ${userInput}, CPU chose ${computerChoice}. You win.`);
+      userScore++;
       break;
   }
+}
+
+function playRound(){
+  getUserInput();
+  getCpuInput();
+  setCpuInput();
+  compareUserCpuChoice();
+  console.log(`Your Score: ${userScore} | Computer Score: ${computerScore}`);
 }
