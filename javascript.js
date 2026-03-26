@@ -14,12 +14,15 @@
 // else re ask prompt
 let validUserInput;
 let userInput;
+let userNumber;
+let computerRandomNumber;
 let computerChoice;
 
 // Gameplay Loop
 getUserInput();
 getCpuInput();
 setCpuInput();
+compareUserCpuChoice();
 
 function getUserInput(){
   do {
@@ -28,14 +31,17 @@ function getUserInput(){
     
     switch (userInput) {
       case "rock":
+        userNumber = 0;
         console.log("You chose rock");
         validUserInput = true;
         break;
       case "paper":
+        userNumber = 1;
         console.log("you chose paper");
         validUserInput = true;
         break;
       case "scissor":
+        userNumber = 2;
         console.log("you chose scissor");
         validUserInput = true;
         break;
@@ -51,28 +57,45 @@ function setUserInputToLower(string){
 }
 
 function getCpuInput(max = 3){
-  computerChoice = Math.floor(Math.random() * max);
-  console.log(computerChoice);
+  computerRandomNumber = Math.floor(Math.random() * max);
 }
 
 function setCpuInput(){
-  switch (computerChoice) {
+  switch (computerRandomNumber) {
     case 0:
-      // rock
-      console.log("cpu rock");
+      computerChoice = "rock";
+      console.log("cpu chose rock");
       break;
     
     case 1:
-      // paper
-      console.log("cpu paper");
+      computerChoice = "paper";
+      console.log("cpu chose paper");
       break;
 
     case 2:
-      // scissor
-      console.log("cpu scissor");
+      computerChoice = "scissor";
+      console.log("cpu chose scissor");
       break;
 
     default:
+      break;
+  }
+}
+
+function compareUserCpuChoice(){
+  let outcome = computerRandomNumber - userNumber;
+  switch (outcome) {
+    case 0:
+      console.log(`You chose ${userInput}, CPU chose ${computerChoice}. You tie.`);
+      break;
+    
+    case 1:
+    case -2:
+      console.log(`You chose ${userInput}, CPU chose ${computerChoice}. You lose.`);
+      break;
+
+    default:
+      console.log(`You chose ${userInput}, CPU chose ${computerChoice}. You win.`);
       break;
   }
 }
