@@ -7,7 +7,7 @@
 
 // once down to 2 players
 // rock paper scissors
-// best of 3 is the king
+// best of 5 is the king
 
 // test userInput = rock paper or scissors
 // if equal than continue
@@ -109,8 +109,8 @@ function playRound(){
   console.log(`Your Score: ${userScore} | Computer Score: ${computerScore}`);
 }
 
-function playGame(numberOfRounds = 5){
-  for (let index = 0; index < numberOfRounds; index++) {
+function playGame(winsNeeded = 3){
+  for (let index = 0; userScore < winsNeeded && computerScore < winsNeeded; index++) {
     console.log(`Round ${index + 1}`);
     playRound();
   }
