@@ -17,9 +17,12 @@
 // if equal than continue
 // else re ask prompt
 let validUserInput = false;
+let userInput;
 
+// check userInput is valid
 do {
-  let userInput = prompt("Rock, Paper, or Scissor");
+  userInput = prompt("Rock, Paper, or Scissor");
+  setUserInputToLower(userInput);
   
   switch (userInput) {
     case "rock":
@@ -35,8 +38,11 @@ do {
       validUserInput = true;
       break;
     default:
+      console.log("Please enter valid input.");
       break;
   }
 } while (!validUserInput);
 
-console.log(userInput);
+function setUserInputToLower(string){
+  userInput = string.toLowerCase();
+}
