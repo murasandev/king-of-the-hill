@@ -21,7 +21,7 @@ let computerChoice;
 let computerScore = 0;
 
 // Gameplay Loop
-playRound();
+playGame();
 
 function getUserInput(){
   do {
@@ -107,4 +107,11 @@ function playRound(){
   setCpuInput();
   compareUserCpuChoice();
   console.log(`Your Score: ${userScore} | Computer Score: ${computerScore}`);
+}
+
+function playGame(numberOfRounds = 5){
+  for (let index = 0; index < numberOfRounds; index++) {
+    console.log(`Round ${index + 1}`);
+    playRound();
+  }
 }
