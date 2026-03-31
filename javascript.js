@@ -132,16 +132,13 @@ function playGame(winsNeeded = 3){
 // if no score = oddman out 
 // unless everybody is tied
 
-// create function to generate object per cpu
-
 function addUserChoiceToArray(){
-  kothArray.push(["user",userNumber,score = 0]);
+  kothArray.push(["user",userNumber]);
 }
 
 function setCpuChoices(cpus = 2){
   for (let index = 0; index < cpus; index++) {
-    kothArray.push([`cpu ${index + 1}`, getCpuInput(), score = 0]);
-    
+    kothArray.push([`cpu ${index + 1}`, getCpuInput()]);
   }
 }
 
@@ -164,14 +161,34 @@ function compareArrayValues(){
 // check array to see if all users have same point total
 // if same point total then repeat round
 // if not then eliminate all players with least amount of points
+let highScore = 0;
 
-function sortArray(){
-  console.log(kothScore.sort(function(a,b){a-b}));
+function getHighScore(){
+  for (let index = 0; index < kothArray.length; index++) {
+    if (kothArray[index][2] > highScore) {
+      highScore = kothArray[index][2];
+    }  
+  }
+}
+
+function allPlayersTied(){
+  if (highScore === 0) {
+  //  replay round
+  }
+}
+
+function eliminateLowScores(){
+  for (let index = 0; index < kothArray.length; index++) {
+    if (kothArray[index][2] < highScore) {
+      console.log(`${kothArray[index]} has been eliminated with a matching score of ${kothArray[index][2]}`);
+    }
+  }
 }
 
 addUserChoiceToArray();
 setCpuChoices();
 compareArrayValues();
 console.log(kothArray);
-// console.log(kothScore + "Koth Score");
-// sortArray();
+getHighScore();
+console.log(highScore);
+eliminateLowScores();
