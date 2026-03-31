@@ -142,6 +142,22 @@ function setCpuChoices(cpus = 2){
   }
 }
 
+function compareArrayValues(){
+  let currUserScore = 0;
+  for (let index = 0; index < kothArray.length; index++) {
+    for (let y = 0; y < kothArray.length; y++) {
+      if(index !== y){
+        if (kothArray[index][1] === kothArray[y][1]) {
+          currUserScore++;
+        }
+      }
+    }
+    console.log(`${kothArray[index]} Score: ${currUserScore}`)
+    currUserScore = 0;
+  }
+}
+
 addUserChoiceToArray();
 setCpuChoices();
+compareArrayValues();
 console.log(kothArray);
