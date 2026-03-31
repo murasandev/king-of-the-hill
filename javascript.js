@@ -13,15 +13,21 @@
 // if equal than continue
 // else re ask prompt
 let validUserInput;
+
 let userInput;
 let userNumber;
 let userScore = 0;
+
 let computerRandomNumber;
 let computerChoice;
 let computerScore = 0;
 
+let kothArray = [];
+
 // Gameplay Loop
 playGame();
+
+// ROCK PAPER SCISSORS
 
 function getUserInput(){
   do {
@@ -52,11 +58,11 @@ function getUserInput(){
 }
 
 function setUserInputToLower(string){
-  userInput = string.toLowerCase();
+  return userInput = string.toLowerCase();
 }
 
 function getCpuInput(max = 3){
-  computerRandomNumber = Math.floor(Math.random() * max);
+  return computerRandomNumber = Math.floor(Math.random() * max);
 }
 
 function setCpuInput(){
@@ -115,3 +121,27 @@ function playGame(winsNeeded = 3){
     playRound();
   }
 }
+
+// KING OF THE HILL
+
+// get input from user
+// get input from cpu's
+// compare inputs from user and cpu
+
+// could add score for each match
+// if no score = oddman out 
+// unless everybody is tied
+
+function addUserChoiceToArray(){
+  kothArray.push(["user",userNumber]);
+}
+
+function setCpuChoices(cpus = 2){
+  for (let index = 0; index < cpus; index++) {
+    kothArray.push([`cpu ${index + 1}`, getCpuInput()]);
+  }
+}
+
+addUserChoiceToArray();
+setCpuChoices();
+console.log(kothArray);
