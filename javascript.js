@@ -8,8 +8,6 @@
 // once down to 2 players
 // rock paper scissors
 // best of 5 is the king
-let validUserInput;
-
 let userInput;
 let userNumber;
 let userScore = 0;
@@ -29,36 +27,32 @@ btnRock.addEventListener("click", (e) => {
   setUserInput("rock");
   playRound();
 });
+
 btnPaper.addEventListener("click", (e) => {
   setUserInput("paper");
   playRound();
 });
+
 btnScissor.addEventListener("click", (e) => {
   setUserInput("scissor");
   playRound();
 });
 
-// ROCK PAPER SCISSORS
 
+// ROCK PAPER SCISSORS
 function setUserInput(userChoice){
     switch (userChoice) {
       case "rock":
         userNumber = 0;
         userInput = "rock";
-        console.log("You chose rock");
-        validUserInput = true;
         break;
       case "paper":
         userNumber = 1;
         userInput = "paper";
-        console.log("you chose paper");
-        validUserInput = true;
         break;
       case "scissor":
         userNumber = 2;
         userInput = "scissor";
-        console.log("you chose scissor");
-        validUserInput = true;
         break;
       default:
         console.log("Please enter valid input.");
@@ -74,17 +68,14 @@ function setCpuInput(){
   switch (computerRandomNumber) {
     case 0:
       computerChoice = "rock";
-      console.log("cpu chose rock");
       break;
     
     case 1:
       computerChoice = "paper";
-      console.log("cpu chose paper");
       break;
 
     case 2:
       computerChoice = "scissor";
-      console.log("cpu chose scissor");
       break;
 
     default:
@@ -113,18 +104,27 @@ function compareUserCpuChoice(){
 }
 
 function playRound(){
+  
   getCpuInput();
   setCpuInput();
   compareUserCpuChoice();
   console.log(`Your Score: ${userScore} | Computer Score: ${computerScore}`);
+  endGame();
 }
 
-function playGame(winsNeeded = 3){
-  for (let index = 0; userScore < winsNeeded && computerScore < winsNeeded; index++) {
-    console.log(`Round ${index + 1}`);
-    playRound();
+function endGame(winsNeeded = 3){
+  if(computerScore === winsNeeded || userScore === winsNeeded){
+    
+    console.log("gameover");
+    if (computerScore === winsNeeded) {
+      console.log(`gameover computer won! computer score: ${computerScore} | user score: ${userScore}`);
+    }
+    else {
+      console.log(`gameover you won! computer score: ${computerScore} | user score: ${userScore}`);
+    }
   }
 }
+
 
 // KING OF THE HILL
 
