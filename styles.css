@@ -1,0 +1,11 @@
+#btn-container{
+  display: flex;
+}
+
+.btn-rock,
+.btn-paper,
+.btn-scissor{
+  border-style: solid;
+  width: 100px;
+  height: 100px;
+}

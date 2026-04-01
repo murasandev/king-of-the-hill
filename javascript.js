@@ -8,10 +8,6 @@
 // once down to 2 players
 // rock paper scissors
 // best of 5 is the king
-
-// test userInput = rock paper or scissors
-// if equal than continue
-// else re ask prompt
 let validUserInput;
 
 let userInput;
@@ -24,29 +20,43 @@ let computerScore = 0;
 
 let kothArray = [];
 
-// Gameplay Loop
-playGame();
+const btnContainer = document.querySelector("#btn-container");
+const btnRock = document.querySelector(".btn-rock");
+const btnPaper = document.querySelector(".btn-paper");
+const btnScissor = document.querySelector(".btn-scissor");
+
+btnRock.addEventListener("click", (e) => {
+  setUserInput("rock");
+  playRound();
+});
+btnPaper.addEventListener("click", (e) => {
+  setUserInput("paper");
+  playRound();
+});
+btnScissor.addEventListener("click", (e) => {
+  setUserInput("scissor");
+  playRound();
+});
 
 // ROCK PAPER SCISSORS
 
-function getUserInput(){
-  do {
-    userInput = prompt("Rock, Paper, or Scissor");
-    setUserInputToLower(userInput);
-    
-    switch (userInput) {
+function setUserInput(userChoice){
+    switch (userChoice) {
       case "rock":
         userNumber = 0;
+        userInput = "rock";
         console.log("You chose rock");
         validUserInput = true;
         break;
       case "paper":
         userNumber = 1;
+        userInput = "paper";
         console.log("you chose paper");
         validUserInput = true;
         break;
       case "scissor":
         userNumber = 2;
+        userInput = "scissor";
         console.log("you chose scissor");
         validUserInput = true;
         break;
@@ -54,11 +64,6 @@ function getUserInput(){
         console.log("Please enter valid input.");
         break;
     }
-  } while (!validUserInput);
-}
-
-function setUserInputToLower(string){
-  return userInput = string.toLowerCase();
 }
 
 function getCpuInput(max = 3){
@@ -108,7 +113,6 @@ function compareUserCpuChoice(){
 }
 
 function playRound(){
-  getUserInput();
   getCpuInput();
   setCpuInput();
   compareUserCpuChoice();
@@ -131,7 +135,7 @@ function playGame(winsNeeded = 3){
 // could add score for each match
 // if no score = oddman out 
 // unless everybody is tied
-let totalPlayers = 3;
+let totalPlayers = 2;
 
 function addUserChoiceToArray(){
   kothArray.push(["user",userNumber]);
@@ -198,19 +202,35 @@ function remainingPlayers(){
   }
 }
 
+function resetKothArray(){
+  kothArray = [];
+  kothArray = newArray;
+  newArray = [];
+}
+
 function resetHighScore(){
   highScore = 0;
 }
 
 // KOTH Game Loop
-do {
-  addUserChoiceToArray();
-  setCpuChoices();
-  compareArrayValues();
-  // console.log(kothArray);
-  getHighScore();
-  console.log(highScore);
-  eliminateLowScores();
-  console.log(kothArray);
-  remainingPlayers();
-} while (totalPlayers > 2);
+// do {
+//   getUserInput();
+//   addUserChoiceToArray();
+//   setCpuChoices(totalPlayers - 1);
+//   compareArrayValues();
+//   // console.log(kothArray);
+//   getHighScore();
+//   console.log("high score: " + highScore);
+//   eliminateLowScores();
+//   // console.log(kothArray);
+//   remainingPlayers();
+//   resetKothArray();
+//   console.log("koth array: " + kothArray);
+//   resetHighScore();
+//   console.log("total players" + totalPlayers);
+// } while (totalPlayers > 2);
+
+// if(totalPlayers < 3){
+//   // Gameplay Loop
+//   playGame();
+// }
