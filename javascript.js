@@ -131,6 +131,7 @@ function playGame(winsNeeded = 3){
 // could add score for each match
 // if no score = oddman out 
 // unless everybody is tied
+let totalPlayers = 3;
 
 function addUserChoiceToArray(){
   kothArray.push(["user",userNumber]);
@@ -181,14 +182,35 @@ function eliminateLowScores(){
   for (let index = 0; index < kothArray.length; index++) {
     if (kothArray[index][2] < highScore) {
       console.log(`${kothArray[index]} has been eliminated with a matching score of ${kothArray[index][2]}`);
+      totalPlayers--;
+      console.log("total playerS: " + totalPlayers);
     }
   }
 }
 
-addUserChoiceToArray();
-setCpuChoices();
-compareArrayValues();
-console.log(kothArray);
-getHighScore();
-console.log(highScore);
-eliminateLowScores();
+let newArray = [];
+function remainingPlayers(){
+  for (let index = 0; index < kothArray.length; index++) {
+    if (kothArray[index][2] === highScore) {
+      newArray.push(kothArray[index]);
+      console.log("New Array: " + newArray);
+    }
+  }
+}
+
+function resetHighScore(){
+  highScore = 0;
+}
+
+// KOTH Game Loop
+do {
+  addUserChoiceToArray();
+  setCpuChoices();
+  compareArrayValues();
+  // console.log(kothArray);
+  getHighScore();
+  console.log(highScore);
+  eliminateLowScores();
+  console.log(kothArray);
+  remainingPlayers();
+} while (totalPlayers > 2);
