@@ -1,5 +1,7 @@
 #btn-container{
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn-rock,
@@ -8,4 +10,5 @@
   border-style: solid;
   width: 100px;
   height: 100px;
+  text-align: center;
 }
