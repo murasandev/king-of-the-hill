@@ -130,6 +130,18 @@ function setOutcomeImage(outcome){
   }
 }
 
+const userScoreContainer = document.querySelector(".user-score");
+const userScoreText = document.createElement("h3");
+
+function setUserScore(){
+  userScoreText.textContent = `User: ${userScore}`;
+  userScoreContainer.appendChild(userScoreText);
+}
+
+function setCpuScore(){
+
+}
+
 function compareUserCpuChoice(){
   let outcome = computerRandomNumber - userNumber;
   switch (outcome) {
@@ -155,6 +167,7 @@ function compareUserCpuChoice(){
       setGameText(`You chose ${userInput}, CPU chose ${computerChoice}. You won this round!`);
       setOutcomeImage(2);
       userScore++;
+      setUserScore();
       break;
   }
 }
