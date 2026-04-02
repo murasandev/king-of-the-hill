@@ -149,19 +149,15 @@ function setTieImage(userChoice){
 }
 
 const userScoreContainer = document.querySelector(".user-score");
-const userScoreText = document.createElement("h3");
 
 function setUserScore(){
-  userScoreText.textContent = `User: ${userScore}`;
-  userScoreContainer.appendChild(userScoreText);
+  userScoreContainer.textContent = userScore;
 }
 
 const cpuScoreContainer = document.querySelector(".cpu-score");
-const cpuScoreText = document.createElement("h3");
 
 function setCpuScore(){
-  cpuScoreText.textContent = `CPU: ${computerScore}`;
-  cpuScoreContainer.appendChild(cpuScoreText);
+  cpuScoreContainer.textContent = computerScore;
 }
 
 function compareUserCpuChoice(){
