@@ -43,6 +43,17 @@ btnScissor.addEventListener("click", (e) => {
   playRound();
 });
 
+const midContainer = document.querySelector(".mid-container");
+const gameText = document.createElement("p");
+
+function setGameText(string){
+  gameText.textContent = string;
+  midContainer.appendChild(gameText);
+}
+
+function removeGameText(){
+  midContainer.removeChild(gameText);
+}
 
 // ROCK PAPER SCISSORS
 function setUserInput(userChoice){
@@ -123,9 +134,11 @@ function endGame(winsNeeded = 3){
     console.log("gameover");
     if (computerScore === winsNeeded) {
       console.log(`gameover computer won! computer score: ${computerScore} | user score: ${userScore}`);
+      setGameText(`gameover computer won! computer score: ${computerScore} | user score: ${userScore}`);
     }
     else {
-      console.log(`gameover you won! computer score: ${computerScore} | user score: ${userScore}`);
+      console.log(`Congrats! you won! computer score: ${computerScore} | user score: ${userScore}`);
+      setGameText(`Congrats! you won! computer score: ${computerScore} | user score: ${userScore}`)
     }
     removeBtns();
   }
