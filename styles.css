@@ -2,14 +2,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 20px;
 }
 
 .btn-rock,
 .btn-paper,
 .btn-scissor{
   border-style: solid;
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -19,6 +20,6 @@
 .btn-rock img,
 .btn-paper img,
 .btn-scissor img{
-  max-height: 100px;
+  max-height: 150px;
   
 }
