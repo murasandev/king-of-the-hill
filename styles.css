@@ -24,8 +24,16 @@ body{
   border: solid;
 }
 
+.round-text-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid;
+}
+
 .score-container{
   display: flex;
+  justify-content: center;
 }
 
 .user-score,

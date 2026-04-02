@@ -58,6 +58,7 @@ function removeGameText(){
 
 const roundTextContainer = document.querySelector(".round-text-container");
 const roundText = document.createElement("h3");
+roundText.classList.add("round-text");
 
 function setRoundNumber(round){
 roundText.textContent = `Round ${round}`;
@@ -158,7 +159,7 @@ function compareUserCpuChoice(){
   }
 }
 
-let roundNumber = 0;
+let roundNumber = 1;
 
 function playRound(){
   setRoundNumber(roundNumber);
