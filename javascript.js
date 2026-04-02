@@ -43,16 +43,25 @@ btnScissor.addEventListener("click", (e) => {
   playRound();
 });
 
-const midContainer = document.querySelector(".mid-container");
+const gameTextContainer = document.querySelector(".game-text-container");
 const gameText = document.createElement("p");
 
 function setGameText(string){
   gameText.textContent = string;
-  midContainer.appendChild(gameText);
+  gameTextContainer.appendChild(gameText);
 }
 
 function removeGameText(){
-  midContainer.removeChild(gameText);
+  gameText.textContent = "";
+  gameTextContainer.appendChild(gameText);
+}
+
+const roundTextContainer = document.querySelector(".round-text-container");
+const roundText = document.createElement("h3");
+
+function setRoundNumber(round){
+roundText.textContent = `Round ${round}`;
+roundTextContainer.appendChild(roundText);
 }
 
 // ROCK PAPER SCISSORS
@@ -149,13 +158,16 @@ function compareUserCpuChoice(){
   }
 }
 
+let roundNumber = 0;
+
 function playRound(){
-  
+  setRoundNumber(roundNumber);
   getCpuInput();
   setCpuInput();
   compareUserCpuChoice();
   console.log(`Your Score: ${userScore} | Computer Score: ${computerScore}`);
   endGame();
+  roundNumber++;
 }
 
 function endGame(winsNeeded = 3){

@@ -35,9 +35,14 @@ body{
   border-width: 5px;
 }
 
+.image-container,
 .outcome-image{
   height: 200px;
   width: auto;
+}
+
+.game-text-container{
+  height: 50px;
 }
 
 #btn-container{
