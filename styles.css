@@ -1,3 +1,12 @@
+body{
+  background-color: rgb(218, 193, 224);
+}
+
+.top-container{
+  display: flex;
+  justify-content: center;
+}
+
 #btn-container{
   display: flex;
   justify-content: center;
@@ -9,6 +18,8 @@
 .btn-paper,
 .btn-scissor{
   border-style: solid;
+  border-color: rgb(178, 155, 184);
+  border-width: 5px;
   width: 200px;
   height: 200px;
   text-align: center;
@@ -21,5 +32,4 @@
 .btn-paper img,
 .btn-scissor img{
   max-height: 150px;
-  
 }
