@@ -99,21 +99,51 @@ function setCpuInput(){
   }
 }
 
+const imageContainer = document.querySelector(".image-container");
+let outcomeImage = document.createElement("img");
+outcomeImage.classList.add("outcome-image");
+
+function setOutcomeImage(outcome){
+  switch(outcome){
+    case 0:
+      outcomeImage.src = "images/rockBeatScissor.png";
+      imageContainer.appendChild(outcomeImage);
+      break;
+    case 1:
+      outcomeImage.src = "images/paperBeatRock.png";
+      imageContainer.appendChild(outcomeImage);
+      break;
+    case 2:
+      outcomeImage.src = "images/scissorBeatPaper.png"
+      imageContainer.appendChild(outcomeImage);
+      break;
+  }
+}
+
 function compareUserCpuChoice(){
   let outcome = computerRandomNumber - userNumber;
   switch (outcome) {
     case 0:
       console.log(`You chose ${userInput}, CPU chose ${computerChoice}. You tie.`);
+      // removeGameText();
+      setGameText(`You chose ${userInput}, CPU chose ${computerChoice}. You tie.`);
+      setOutcomeImage(0);
       break;
     
     case 1:
     case -2:
       console.log(`You chose ${userInput}, CPU chose ${computerChoice}. You lose.`);
       computerScore++;
+      // removeGameText();
+      setGameText(`You chose ${userInput}, CPU chose ${computerChoice}. You lost this round!`);
+      setOutcomeImage(1);
       break;
 
     default:
       console.log(`You chose ${userInput}, CPU chose ${computerChoice}. You win.`);
+      // removeGameText();
+      setGameText(`You chose ${userInput}, CPU chose ${computerChoice}. You won this round!`);
+      setOutcomeImage(2);
       userScore++;
       break;
   }

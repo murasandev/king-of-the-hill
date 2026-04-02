@@ -2,14 +2,42 @@ body{
   background-color: rgb(218, 193, 224);
 }
 
+.page-container{
+  display: flex;
+  flex-direction: column;
+  border: solid;
+  height: 90vh;
+}
+
 .top-container{
   display: flex;
   justify-content: center;
+  flex: .5 1 0%;
 }
 
 .mid-container{
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  flex: 2 1 0%;
+  border: solid;
+}
+
+.score-container{
+  display: flex;
+}
+
+.user-score,
+.cpu-score{
+  border: solid;
+  border-color: rgb(178, 155, 184);
+  border-width: 5px;
+}
+
+.outcome-image{
+  height: 200px;
+  width: auto;
 }
 
 #btn-container{
@@ -17,6 +45,7 @@ body{
   justify-content: center;
   align-items: center;
   gap: 20px;
+  flex: 1 1 0%;
 }
 
 .btn-rock,
