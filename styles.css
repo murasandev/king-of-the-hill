@@ -7,6 +7,11 @@ body{
   justify-content: center;
 }
 
+.mid-container{
+  display: flex;
+  justify-content: center;
+}
+
 #btn-container{
   display: flex;
   justify-content: center;
