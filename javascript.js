@@ -24,21 +24,9 @@ let kothArray = [];
 // const btnScissor = document.querySelector(".btn-scissor");
 
 const btnContainer = document.querySelector("#btn-container");
-const btnRock = document.createElement("div");
-const btnPaper = document.createElement("div");
-const btnScissor = document.createElement("div");
-
-btnRock.classList.add("btn-rock");
-btnPaper.classList.add("btn-paper");
-btnScissor.classList.add("btn-scissor");
-
-btnRock.textContent = "Rock";
-btnPaper.textContent = "Paper";
-btnScissor.textContent = "Scissor";
-
-btnContainer.appendChild(btnRock);
-btnContainer.appendChild(btnPaper);
-btnContainer.appendChild(btnScissor);
+const btnRock = document.querySelector(".btn-rock");
+const btnPaper = document.querySelector(".btn-paper");
+const btnScissor = document.querySelector(".btn-scissor");
 
 btnRock.addEventListener("click", (e) => {
   setUserInput("rock");

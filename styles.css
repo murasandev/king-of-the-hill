@@ -11,4 +11,14 @@
   width: 100px;
   height: 100px;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-rock img,
+.btn-paper img,
+.btn-scissor img{
+  max-height: 100px;
+  
 }
