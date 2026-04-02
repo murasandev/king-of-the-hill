@@ -113,20 +113,38 @@ const imageContainer = document.querySelector(".image-container");
 let outcomeImage = document.createElement("img");
 outcomeImage.classList.add("outcome-image");
 
-function setOutcomeImage(outcome){
-  switch(outcome){
-    case 0:
+function setOutcomeImage(winnerChoice){
+  switch(winnerChoice){
+    case "rock":
       outcomeImage.src = "images/rockBeatScissor.png";
       imageContainer.appendChild(outcomeImage);
       break;
-    case 1:
+    case "paper":
       outcomeImage.src = "images/paperBeatRock.png";
       imageContainer.appendChild(outcomeImage);
       break;
-    case 2:
+    case "scissor":
       outcomeImage.src = "images/scissorBeatPaper.png"
       imageContainer.appendChild(outcomeImage);
       break;
+  }
+}
+
+function setTieImage(userChoice){
+  switch(userChoice){
+    case "rock":
+      outcomeImage.src = "images/rock.png";
+      imageContainer.appendChild(outcomeImage);
+      break;
+    case "paper":
+      outcomeImage.src = "images/paper.png";
+      imageContainer.appendChild(outcomeImage);
+      break;
+    case "scissor":
+      outcomeImage.src = "images/scissor.png";
+      imageContainer.appendChild(outcomeImage);
+      break;
+
   }
 }
 
@@ -138,8 +156,12 @@ function setUserScore(){
   userScoreContainer.appendChild(userScoreText);
 }
 
-function setCpuScore(){
+const cpuScoreContainer = document.querySelector(".cpu-score");
+const cpuScoreText = document.createElement("h3");
 
+function setCpuScore(){
+  cpuScoreText.textContent = `CPU: ${computerScore}`;
+  cpuScoreContainer.appendChild(cpuScoreText);
 }
 
 function compareUserCpuChoice(){
@@ -149,7 +171,7 @@ function compareUserCpuChoice(){
       console.log(`You chose ${userInput}, CPU chose ${computerChoice}. You tie.`);
       // removeGameText();
       setGameText(`You chose ${userInput}, CPU chose ${computerChoice}. You tie.`);
-      setOutcomeImage(0);
+      setTieImage(userInput);
       break;
     
     case 1:
@@ -158,14 +180,15 @@ function compareUserCpuChoice(){
       computerScore++;
       // removeGameText();
       setGameText(`You chose ${userInput}, CPU chose ${computerChoice}. You lost this round!`);
-      setOutcomeImage(1);
+      setOutcomeImage(computerChoice);
+      setCpuScore();
       break;
 
     default:
       console.log(`You chose ${userInput}, CPU chose ${computerChoice}. You win.`);
       // removeGameText();
       setGameText(`You chose ${userInput}, CPU chose ${computerChoice}. You won this round!`);
-      setOutcomeImage(2);
+      setOutcomeImage(userInput);
       userScore++;
       setUserScore();
       break;
