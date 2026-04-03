@@ -44,25 +44,15 @@ btnScissor.addEventListener("click", (e) => {
 });
 
 const gameTextContainer = document.querySelector(".game-text-container");
-const gameText = document.createElement("p");
 
 function setGameText(string){
-  gameText.textContent = string;
-  gameTextContainer.appendChild(gameText);
-}
-
-function removeGameText(){
-  gameText.textContent = "";
-  gameTextContainer.appendChild(gameText);
+  gameTextContainer.textContent = string;
 }
 
 const roundTextContainer = document.querySelector(".round-text-container");
-const roundText = document.createElement("h3");
-roundText.classList.add("round-text");
 
 function setRoundNumber(round){
-roundText.textContent = `Round ${round}`;
-roundTextContainer.appendChild(roundText);
+roundTextContainer.textContent = `Round ${round}`;
 }
 
 // ROCK PAPER SCISSORS
@@ -151,13 +141,13 @@ function setTieImage(userChoice){
 const userScoreContainer = document.querySelector(".user-score");
 
 function setUserScore(){
-  userScoreContainer.textContent = userScore;
+  userScoreContainer.textContent = `0${userScore}`;
 }
 
 const cpuScoreContainer = document.querySelector(".cpu-score");
 
 function setCpuScore(){
-  cpuScoreContainer.textContent = computerScore;
+  cpuScoreContainer.textContent = `0${computerScore}`;
 }
 
 function compareUserCpuChoice(){
