@@ -28,19 +28,29 @@ const playAgainText = document.querySelector(".play-again-text");
 btnPlayAgain.style.display = "none";
 playAgainText.style.display = "none";
 
+const audioPlay = document.querySelector(".btn-audio");
+
+function playAudio(){
+  audioPlay.volume = .1;
+  audioPlay.play();
+}
+
 btnRock.addEventListener("click", (e) => {
   setUserInput("rock");
   playRound();
+  playAudio();
 });
 
 btnPaper.addEventListener("click", (e) => {
   setUserInput("paper");
   playRound();
+  playAudio();
 });
 
 btnScissor.addEventListener("click", (e) => {
   setUserInput("scissor");
   playRound();
+  playAudio();
 });
 
 const gameTextContainer = document.querySelector(".game-text-container");
