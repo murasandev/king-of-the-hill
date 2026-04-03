@@ -24,7 +24,9 @@ const btnPaper = document.querySelector(".btn-paper");
 const btnScissor = document.querySelector(".btn-scissor");
 
 const btnPlayAgain = document.querySelector(".btn-play-again");
+const playAgainText = document.querySelector(".play-again-text");
 btnPlayAgain.style.display = "none";
+playAgainText.style.display = "none";
 
 btnRock.addEventListener("click", (e) => {
   setUserInput("rock");
@@ -205,6 +207,7 @@ function endGame(winsNeeded = 3){
     }
     removeBtns();
     btnPlayAgain.style.display = "flex";
+    playAgainText.style.display = "flex";
   }
 }
 
@@ -234,6 +237,7 @@ function playAgain(){
 
   setGameText(`Select Rock, Paper, or Scissor to start!`);
   btnPlayAgain.style.display = "none";
+  playAgainText.style.display = "none";
 }
 
 

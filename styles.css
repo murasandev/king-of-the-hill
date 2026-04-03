@@ -118,3 +118,19 @@ h1{
 .btn-scissor img{
   max-height: 150px;
 }
+
+.play-again-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.play-again-text,
+.btn-play-again{
+  font-size: 50px;
+}
+
+.btn-play-again:hover {
+  color: whitesmoke;
+}
