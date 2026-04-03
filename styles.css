@@ -1,3 +1,12 @@
+@font-face {
+  font-family: VintageCharm-Regular;
+  src: url(fonts/VintageCharm-Regular.otf);
+}
+
+*{
+  font-family: VintageCharm-Regular;
+}
+
 body{
   background-color: rgb(218, 193, 224);
 }
@@ -12,6 +21,12 @@ body{
   display: flex;
   justify-content: center;
   flex: .5 1 0%;
+}
+
+h1{
+  font-family: VintageCharm-Regular;
+  color: whitesmoke;
+  font-size: 75px;
 }
 
 .mid-container{
@@ -52,13 +67,6 @@ body{
 .user-score,
 .cpu-score{
   font-size: 150px;
-}
-
-.user-score,
-.cpu-score{
-  border: solid;
-  border-color: rgb(178, 155, 184);
-  border-width: 5px;
 }
 
 .round-image-text-container{
