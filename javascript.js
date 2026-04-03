@@ -23,6 +23,9 @@ const btnRock = document.querySelector(".btn-rock");
 const btnPaper = document.querySelector(".btn-paper");
 const btnScissor = document.querySelector(".btn-scissor");
 
+const btnPlayAgain = document.querySelector(".btn-play-again");
+btnPlayAgain.style.display = "none";
+
 btnRock.addEventListener("click", (e) => {
   setUserInput("rock");
   playRound();
@@ -201,6 +204,7 @@ function endGame(winsNeeded = 3){
       setGameText(`Congrats! you won! computer score: ${computerScore} | user score: ${userScore}`)
     }
     removeBtns();
+    btnPlayAgain.style.display = "flex";
   }
 }
 
@@ -210,16 +214,14 @@ function removeBtns(){
   btnScissor.style.display = "none";
 }
 
-const btnPlayAgain = document.querySelector(".btn-play-again");
-
 btnPlayAgain.addEventListener("click", (e) => {
   playAgain();
 })
 
 function playAgain(){
-  btnRock.style.display = "initial";
-  btnPaper.style.display = "initial";
-  btnScissor.style.display = "initial";
+  btnRock.style.display = "flex";
+  btnPaper.style.display = "flex";
+  btnScissor.style.display = "flex";
 
   userScore = 0;
   computerScore = 0;
@@ -229,6 +231,9 @@ function playAgain(){
 
   roundNumber = 1;
   setRoundNumber(roundNumber);
+
+  setGameText(`Select Rock, Paper, or Scissor to start!`);
+  btnPlayAgain.style.display = "none";
 }
 
 
