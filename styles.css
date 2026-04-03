@@ -113,6 +113,12 @@ h1{
   align-items: center;
 }
 
+.btn-rock:hover,
+.btn-paper:hover,
+.btn-scissor:hover{
+  border-color: whitesmoke;
+}
+
 .btn-rock img,
 .btn-paper img,
 .btn-scissor img{
