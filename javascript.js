@@ -18,11 +18,6 @@ let computerScore = 0;
 
 let kothArray = [];
 
-// const btnContainer = document.querySelector("#btn-container");
-// const btnRock = document.querySelector(".btn-rock");
-// const btnPaper = document.querySelector(".btn-paper");
-// const btnScissor = document.querySelector(".btn-scissor");
-
 const btnContainer = document.querySelector("#btn-container");
 const btnRock = document.querySelector(".btn-rock");
 const btnPaper = document.querySelector(".btn-paper");
@@ -210,9 +205,30 @@ function endGame(winsNeeded = 3){
 }
 
 function removeBtns(){
-  btnContainer.removeChild(btnRock);
-  btnContainer.removeChild(btnPaper);
-  btnContainer.removeChild(btnScissor);
+  btnRock.style.display = "none";
+  btnPaper.style.display = "none";
+  btnScissor.style.display = "none";
+}
+
+const btnPlayAgain = document.querySelector(".btn-play-again");
+
+btnPlayAgain.addEventListener("click", (e) => {
+  playAgain();
+})
+
+function playAgain(){
+  btnRock.style.display = "initial";
+  btnPaper.style.display = "initial";
+  btnScissor.style.display = "initial";
+
+  userScore = 0;
+  computerScore = 0;
+
+  setUserScore();
+  setCpuScore();
+
+  roundNumber = 1;
+  setRoundNumber(roundNumber);
 }
 
 
